@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>Rock Paper Scissors</head>
+<body>
+    <script>
+        
+        /**
+        * Prompts the user for their play selection and assigns it to playerSelection
+        */
+        let playerSelection;
+        let playerScore = 0;
+        
+                
+        function playerPlay() {
+            playerSelection = prompt("Rock, Paper, or Scissors?", "Rock");
+            return playerSelection.toLowerCase();
+        }
+        
+        /*+
+        * Randomly selects a number between 0 and 2, then assigns the corresponding selection
+        * returns computerSelection
+        */
+        
+        let computerSelection;
+        let computerScore = 0;
+                
+        function computerPlay() {
+                        
+            switch(Math.floor(Math.random() * 3)) {
+              case 0:
+                computerSelection = "Rock";
+                break;
+              case 1:
+                computerSelection = "Paper";
+                break;
+              case 2: 
+                computerSelection = "Scissors";
+                break;             
+            }
+
+            return computerSelection.toLowerCase();
+        }
+
+               
+        function playRound(playerSelection, computerSelection) {
+                    
+                        
+            if(playerSelection == computerSelection) {
+                console.log(playerSelection);
+                console.log(computerSelection);
+                console.log("It's a tie!");
+                console.log("Your score: " + playerScore + " Computer score: " + computerScore);
+            } else
+            
+            if(playerSelection == "rock" && computerSelection == "scissors"){
+                console.log(playerSelection);
+                console.log(computerSelection);
+                console.log("You win!");
+                playerScore++;
+                console.log("Your score: " + playerScore + " Computer score: " + computerScore);
+            } else
+            
+            if(playerSelection == "paper" && computerSelection == "rock") {
+                console.log(playerSelection);
+                console.log(computerSelection);
+                console.log("You win!");
+                playerScore++;
+                console.log("Your score: " + playerScore + " Computer score: " + computerScore);
+            } else
+                
+            if(playerSelection == "scissors" && computerSelection == "paper"){
+                console.log(playerSelection);
+                console.log(computerSelection);
+                console.log("You win!");
+                playerScore++;
+                console.log("Your score: " + playerScore + " Computer score: " + computerScore);
+            } else {
+                console.log(playerSelection);
+                console.log(computerSelection);
+                console.log("Computer wins!");
+                computerScore++;
+                console.log("Your score: " + playerScore + " Computer score: " + computerScore);
+            }
+                    
+            return " ";
+        }
+        
+        function game(){
+            
+            console.log("5 game series:")
+                    
+            for(x = 1; x <= 5; x++) {
+                   playRound(playerPlay(), computerPlay());
+            }
+
+            if(playerScore > computerScore) {
+                console.log("You won the series!")
+            } else {
+                console.log("You lost the series!")
+            }
+        }
+        
+        game();
+    
+    </script>
+</body>
+</html>
