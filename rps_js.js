@@ -4,6 +4,8 @@ let playerScore = 0;
 let computerSelection;
 let computerScore = 0;
 
+let winnerPresent = false;
+
 //references to existing div in the HTML
 //important to use querySelector instead of getElementById
 const playerScoreBoard = document.querySelector('#userScoreDisplay');
@@ -36,7 +38,6 @@ scissorsButton.addEventListener('click', (e) => {
    playRound("scissors", computerPlay()); 
 });
     
-
 
 /*+
 * Randomly selects a number between 0 and 2, then assigns the corresponding selection
@@ -76,7 +77,8 @@ function addElements(playerSelection, computerSelection, playerScore, computerSc
 
 
 function playRound(playerSelection, computerSelection) {
-
+    
+    resetAfterWin(winnerPresent);
 
     if(playerSelection == computerSelection) {    
         addElements(playerSelection, computerSelection, playerScore, computerScore);
@@ -116,8 +118,22 @@ function checkForWinner(playerScore, computerScore) {
     if(playerScore == 5) {
         displayWinner.textContent = "You won!";
         winner.appendChild(displayWinner);
+        winnerPresent = true;
     } else if (computerScore == 5) {
         displayWinner.textContent = "The computer won!";
         winner.appendChild(displayWinner);
+        winnerPresent = true;
     } else return;
+}
+
+function resetAfterWin(winnerPresent) {
+    if(winnerPresent) {
+        winner.removeChild(displayWinner);
+        playerScore = 0;
+        computerScore = 0;
+        winnerPresent = false;
+        return;
+    } else {
+        return;
+    }
 }
