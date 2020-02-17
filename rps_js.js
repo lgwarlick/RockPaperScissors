@@ -58,102 +58,54 @@ function computerPlay() {
     return computerSelection;
 }
 
+function addElements(playerSelection, computerSelection, playerScore, computerScore) {
+    
+    lastPlayerChoice.textContent = "Player Chose: " + playerSelection + " ";
+    lastRound.append(lastPlayerChoice);
+
+    lastComputerChoice.textContent = "Computer Chose: " + computerSelection;
+    lastRound.append(lastComputerChoice);
+
+    playerScoreHere.textContent = "Player Score: " + playerScore;
+    playerScoreBoard.appendChild(playerScoreHere);
+
+    computerScoreHere.textContent = "Computer Score: " + computerScore;
+    computerScoreBoard.appendChild(computerScoreHere);
+    
+}
+
 
 function playRound(playerSelection, computerSelection) {
 
 
-    if(playerSelection == computerSelection) {
-               
-        lastPlayerChoice.textContent = "Player Chose: " + playerSelection + " ";
-        lastRound.append(lastPlayerChoice);
-        
-        lastComputerChoice.textContent = "Computer Chose: " + computerSelection;
-        lastRound.append(lastComputerChoice);
-        
-        playerScoreHere.textContent = "Player Score: " + playerScore;
-        playerScoreBoard.appendChild(playerScoreHere);
-        
-        computerScoreHere.textContent = "Computer Score: " + computerScore;
-        computerScoreBoard.appendChild(computerScoreHere);
-        
+    if(playerSelection == computerSelection) {    
+        addElements(playerSelection, computerSelection, playerScore, computerScore);
         checkForWinner(playerScore, computerScore);
         
     } else
 
     if(playerSelection == "rock" && computerSelection == "scissors"){
-        
         playerScore++;
-        
-        lastPlayerChoice.textContent = "Player Chose: " + playerSelection + " ";
-        lastRound.append(lastPlayerChoice);
-        
-        lastComputerChoice.textContent = "Computer Chose: " + computerSelection;
-        lastRound.append(lastComputerChoice);
-        
-        playerScoreHere.textContent = "Player Score: " + playerScore;
-        playerScoreBoard.appendChild(playerScoreHere);
-        
-        computerScoreHere.textContent = "Computer Score: " + computerScore;
-        computerScoreBoard.appendChild(computerScoreHere);
-        
+        addElements(playerSelection, computerSelection, playerScore, computerScore);
         checkForWinner(playerScore, computerScore);
     
     } else
 
     if(playerSelection == "paper" && computerSelection == "rock") {
-        
         playerScore++;
-        
-        lastPlayerChoice.textContent = "Player Chose: " + playerSelection + " ";
-        lastRound.append(lastPlayerChoice);
-        
-        lastComputerChoice.textContent = "Computer Chose: " + computerSelection;
-        lastRound.append(lastComputerChoice);
-        
-        playerScoreHere.textContent = "Player Score: " + playerScore;
-        playerScoreBoard.appendChild(playerScoreHere);
-        
-        computerScoreHere.textContent = "Computer Score: " + computerScore;
-        computerScoreBoard.appendChild(computerScoreHere);
-        
+        addElements(playerSelection, computerSelection, playerScore, computerScore);
         checkForWinner(playerScore, computerScore);
         
     } else
 
     if(playerSelection == "scissors" && computerSelection == "paper"){
-        
         playerScore++;
-        
-        lastPlayerChoice.textContent = "Player Chose: " + playerSelection + " ";
-        lastRound.append(lastPlayerChoice);
-        
-        lastComputerChoice.textContent = "Computer Chose: " + computerSelection;
-        lastRound.append(lastComputerChoice);
-        
-        playerScoreHere.textContent = "Player Score: " + playerScore;
-        playerScoreBoard.appendChild(playerScoreHere);
-        
-        computerScoreHere.textContent = "Computer Score: " + computerScore;
-        computerScoreBoard.appendChild(computerScoreHere);
-        
+        addElements(playerSelection, computerSelection, playerScore, computerScore);
         checkForWinner(playerScore, computerScore);
    
     } else {
-        
         computerScore++;
-        
-        lastPlayerChoice.textContent = "Player Chose: " + playerSelection + " ";
-        lastRound.append(lastPlayerChoice);
-        
-        lastComputerChoice.textContent = "Computer Chose: " + computerSelection;
-        lastRound.append(lastComputerChoice);
-        
-        playerScoreHere.textContent = "Player Score: " + playerScore;
-        playerScoreBoard.appendChild(playerScoreHere);
-        
-        computerScoreHere.textContent = "Computer Score: " + computerScore;
-        computerScoreBoard.appendChild(computerScoreHere);
-        
+        addElements(playerSelection, computerSelection, playerScore, computerScore);
         checkForWinner(playerScore, computerScore);
     }
 
